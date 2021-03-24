@@ -2,16 +2,14 @@
 
 namespace App\Model;
 
-use App\Database\DBConnectionInterface;
+use App\Database\DBConnection;
 
-class Product
+class Product extends DBConnection
 {
-    private $dbConnection;
 
-    public function __construct(DBConnectionInterface $dbConnection)
+    public function __construct()
     {
-        $this->dbConnection = $dbConnection;
-        print $this->dbConnection->connect();
+        parent::__construct();
     }
 
     public function get()
