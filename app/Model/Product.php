@@ -6,7 +6,6 @@ use App\Database\DBConnection;
 
 class Product extends DBConnection
 {
-
     public function __construct()
     {
         parent::__construct();
