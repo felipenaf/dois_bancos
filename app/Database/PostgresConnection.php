@@ -7,8 +7,11 @@ class PostgresConnection implements DBConnectionInterface
     private $instance;
 
     public function __construct() {
-        $this->instance = pg_connect("host=localhost port=5432 dbname=VAM user=postgres password=") or
-        die ("Não foi possível conectar ao servidor Postgres\n");
+	    $this->instance = sprintf(
+            "host=%s port=%s dbname=%s user=%s password=%s", 
+            'localhost', '5432', 'VAM', 'felipe', '123'
+        );
+
     }
 
     public function executeQuery($query)

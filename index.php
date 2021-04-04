@@ -8,5 +8,3 @@ use App\Model\Product;
 
 $p = new Product();
 $p->get();
-
-print "\n";

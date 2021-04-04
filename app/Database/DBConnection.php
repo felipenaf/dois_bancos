@@ -2,6 +2,8 @@
 
 namespace App\Database;
 
+use Exception;
+
 abstract class DBConnection
 {
     protected $dbConnection;
@@ -9,15 +11,19 @@ abstract class DBConnection
     protected function __construct()
     {
         // .ini file || Header || Request || etc.
-        $banco = 0; // 0 = Postgres | 1 = Mysql
+        $banco = 'postgres';
 
         switch ($banco) {
-            case 1:
+            case 'mysql':
                 $this->dbConnection = new MySQLConnection;
                 break;
             
-            default:
+            case 'postgres':
                 $this->dbConnection = new PostgresConnection;
+                break;
+
+            default:
+                throw new Exception("No database selected");
                 break;
         }
 
